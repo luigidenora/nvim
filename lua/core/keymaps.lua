@@ -16,16 +16,25 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<leader>f', function()
       vim.lsp.buf.format { async = true }
     end, { buffer = ev.buf, desc = "Format File" })
-    -- need the Tab here : 
+    -- need the Tab here :
     --
     --
-     end,
+  end,
 })
 
 -- custom
-vim.keymap.set('n', '<leader>ee', vim.cmd.Ex)
+vim.keymap.set('n', '<leader>ee', vim.cmd.Ex, { desc = "Open File Explorer" })
 vim.keymap.set('n', '<leader>dl', "<cmd>Telescope diagnostic<cr>")
 vim.keymap.set("n", "<C-.>", vim.lsp.buf.code_action, { desc = "Code Action" })
+vim.keymap.set("v", "<C-.>", vim.lsp.buf.code_action, { desc = "Code Action" })
+vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = "Code Action" })
+vim.keymap.set('n', '<C-s>', vim.cmd.w, { desc = "Save File" })
 
+vim.keymap.set('n', '<leader>oi', function()
+  vim.lsp.buf.execute_command({
+    command = '_typescript.organizeImports',
+    arguments = { vim.api.nvim_buf_get_name(0) },
+  })
+end, { desc = 'Organize Imports (TS)' })
 -- UndoTree
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
