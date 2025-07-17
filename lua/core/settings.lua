@@ -21,7 +21,7 @@ opt.undofile = true
 opt.hlsearch = false
 opt.incsearch = true
 
-vim.cmd.colorscheme "catppuccin"
+-- vim.cmd.colorscheme "catppuccin"
 
 vim.diagnostic.config({
   virtual_text = true,
