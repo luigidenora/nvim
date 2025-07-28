@@ -14,8 +14,8 @@ return {
   priority = 1000, -- make sure to load this before all the other start plugins
   opts = {
     options = {
-      transparent = true,
-      terminal_colors = true,
+--      transparent = true,
+--      terminal_colors = true,
     }
   },
   config = function(_, opts)
